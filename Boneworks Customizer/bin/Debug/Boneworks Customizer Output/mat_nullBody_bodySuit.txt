@@ -1,0 +1,400 @@
+0 Material Base
+ 1 string m_Name = "mat_nullBody_bodySuit"
+ 0 PPtr<Shader> m_Shader
+  0 int m_FileID = 0
+  0 SInt64 m_PathID = 2372
+ 1 string m_ShaderKeywords = "S_RECEIVE_SHADOWS S_SPECULAR_METALLIC _ALPHABLEND_ON _DETAIL_MULX2 _EMISSION"
+ 0 unsigned int m_LightmapFlags = 4
+ 0 bool m_EnableInstancingVariants = true
+ 1 bool m_DoubleSidedGI = false
+ 0 int m_CustomRenderQueue = -1
+ 0 map stringTagMap
+  0 Array Array (1 items)
+   0 int size = 1
+   [0]
+    0 pair data
+     1 string first = "OriginalShader"
+     1 string second = "Standard"
+ 0 vector disabledShaderPasses
+  1 Array Array (0 items)
+   0 int size = 0
+ 0 UnityPropertySheet m_SavedProperties
+  0 map m_TexEnvs
+   0 Array Array (2 items)
+    0 int size = 2
+    [0]
+     0 pair data
+      1 string first = "_MainTex"
+      0 UnityTexEnv second
+       0 PPtr<Texture> m_Texture
+        0 int m_FileID = 0
+        0 SInt64 m_PathID = 921
+       0 Vector2f m_Scale
+        0 float x = 1
+        0 float y = 1
+       0 Vector2f m_Offset
+        0 float x = 0
+        0 float y = 0
+    [1]
+     0 pair data
+      1 string first = "_texcoord"
+      0 UnityTexEnv second
+       0 PPtr<Texture> m_Texture
+        0 int m_FileID = 0
+        0 SInt64 m_PathID = 0
+       0 Vector2f m_Scale
+        0 float x = 1
+        0 float y = 1
+       0 Vector2f m_Offset
+        0 float x = 0
+        0 float y = 0
+  0 map m_Floats
+   0 Array Array (56 items)
+    0 int size = 56
+    [0]
+     0 pair data
+      1 string first = "_AnisotropicRatio"
+      0 float second = 0.5
+    [1]
+     0 pair data
+      1 string first = "_AnisotropicRotation"
+      0 float second = 0.5
+    [2]
+     0 pair data
+      1 string first = "_BloodyTexScale"
+      0 float second = 0.00999999978
+    [3]
+     0 pair data
+      1 string first = "_BumpScale"
+      0 float second = 1
+    [4]
+     0 pair data
+      1 string first = "_ColorMultiplier"
+      0 float second = 0
+    [5]
+     0 pair data
+      1 string first = "_Cull"
+      0 float second = 2
+    [6]
+     0 pair data
+      1 string first = "_Cutoff"
+      0 float second = 0
+    [7]
+     0 pair data
+      1 string first = "_DetailMode"
+      0 float second = 0
+    [8]
+     0 pair data
+      1 string first = "_DetailNormalMapScale"
+      0 float second = 1
+    [9]
+     0 pair data
+      1 string first = "_DstBlend"
+      0 float second = 10
+    [10]
+     0 pair data
+      1 string first = "_EmissionFalloff"
+      0 float second = 0.540000021
+    [11]
+     0 pair data
+      1 string first = "_EmissiveMode"
+      0 float second = 0
+    [12]
+     0 pair data
+      1 string first = "_FogMultiplier"
+      0 float second = 1
+    [13]
+     0 pair data
+      1 string first = "_GlossMapScale"
+      0 float second = 1
+    [14]
+     0 pair data
+      1 string first = "_Glossiness"
+      0 float second = 0.5
+    [15]
+     0 pair data
+      1 string first = "_GlossyReflections"
+      0 float second = 1
+    [16]
+     0 pair data
+      1 string first = "_Metallic"
+      0 float second = 0
+    [17]
+     0 pair data
+      1 string first = "_Mode"
+      0 float second = 2
+    [18]
+     0 pair data
+      1 string first = "_NormalToOcclusion"
+      0 float second = 1
+    [19]
+     0 pair data
+      1 string first = "_NumberOfElipsoids"
+      0 float second = 0
+    [20]
+     0 pair data
+      1 string first = "_NumberOfHits"
+      0 float second = 0
+    [21]
+     0 pair data
+      1 string first = "_OcclusionStrength"
+      0 float second = 1
+    [22]
+     0 pair data
+      1 string first = "_OcclusionStrengthDirectDiffuse"
+      0 float second = 1
+    [23]
+     0 pair data
+      1 string first = "_OcclusionStrengthDirectSpecular"
+      0 float second = 1
+    [24]
+     0 pair data
+      1 string first = "_OcclusionStrengthIndirectDiffuse"
+      0 float second = 1
+    [25]
+     0 pair data
+      1 string first = "_OcclusionStrengthIndirectSpecular"
+      0 float second = 1
+    [26]
+     0 pair data
+      1 string first = "_OffsetFactor"
+      0 float second = 0
+    [27]
+     0 pair data
+      1 string first = "_OffsetUnits"
+      0 float second = 0
+    [28]
+     0 pair data
+      1 string first = "_PackingMode"
+      0 float second = 0
+    [29]
+     0 pair data
+      1 string first = "_Parallax"
+      0 float second = 0.0199999996
+    [30]
+     0 pair data
+      1 string first = "_ParallaxIterations"
+      0 float second = 1
+    [31]
+     0 pair data
+      1 string first = "_ParallaxOffset"
+      0 float second = 0
+    [32]
+     0 pair data
+      1 string first = "_Power"
+      0 float second = 0.25
+    [33]
+     0 pair data
+      1 string first = "_ScanlineDistance"
+      0 float second = 20
+    [34]
+     0 pair data
+      1 string first = "_ScanlineTime"
+      0 float second = 7
+    [35]
+     0 pair data
+      1 string first = "_SmoothnessTextureChannel"
+      0 float second = 0
+    [36]
+     0 pair data
+      1 string first = "_SpecMod"
+      0 float second = 1
+    [37]
+     0 pair data
+      1 string first = "_SpecularHighlights"
+      0 float second = 1
+    [38]
+     0 pair data
+      1 string first = "_SpecularMode"
+      0 float second = 2
+    [39]
+     0 pair data
+      1 string first = "_SrcBlend"
+      0 float second = 5
+    [40]
+     0 pair data
+      1 string first = "_Test"
+      0 float second = 0
+    [41]
+     0 pair data
+      1 string first = "_UVSec"
+      0 float second = 0
+    [42]
+     0 pair data
+      1 string first = "_VertexMode"
+      0 float second = 0
+    [43]
+     0 pair data
+      1 string first = "_ZWrite"
+      0 float second = 0
+    [44]
+     0 pair data
+      1 string first = "g_bCastShadows"
+      0 float second = 0
+    [45]
+     0 pair data
+      1 string first = "g_bReceiveShadows"
+      0 float second = 1
+    [46]
+     0 pair data
+      1 string first = "g_bRenderBackfaces"
+      0 float second = 0
+    [47]
+     0 pair data
+      1 string first = "g_bUnlit"
+      0 float second = 0
+    [48]
+     0 pair data
+      1 string first = "g_bWorldAlignedTexture"
+      0 float second = 0
+    [49]
+     0 pair data
+      1 string first = "g_flCubeMapScalar"
+      0 float second = 1
+    [50]
+     0 pair data
+      1 string first = "g_flFresnelExponent"
+      0 float second = 5
+    [51]
+     0 pair data
+      1 string first = "g_flFresnelFalloff"
+      0 float second = 1
+    [52]
+     0 pair data
+      1 string first = "g_flReflectanceBias"
+      0 float second = 0
+    [53]
+     0 pair data
+      1 string first = "g_flReflectanceMax"
+      0 float second = 1
+    [54]
+     0 pair data
+      1 string first = "g_flReflectanceMin"
+      0 float second = 0
+    [55]
+     0 pair data
+      1 string first = "g_flReflectanceScale"
+      0 float second = 1
+  0 map m_Colors
+   0 Array Array (15 items)
+    0 int size = 15
+    [0]
+     0 pair data
+      1 string first = "_Absorbance"
+      0 ColorRGBA second
+       0 float r = 0.0999999717
+       0 float g = 0.24999997
+       0 float b = 0.5
+       0 float a = 1
+    [1]
+     0 pair data
+      1 string first = "_BloodyColor"
+      0 ColorRGBA second
+       0 float r = 1
+       0 float g = 0.5019608
+       0 float b = 0
+       0 float a = 1
+    [2]
+     0 pair data
+      1 string first = "_Color"
+      0 ColorRGBA second
+       0 float r = 0.9
+       0 float g = 0.9
+       0 float b = 0.9
+       0 float a = 1
+    [3]
+     0 pair data
+      1 string first = "_ColorShift1"
+      0 ColorRGBA second
+       0 float r = 1
+       0 float g = 1
+       0 float b = 1
+       0 float a = 1
+    [4]
+     0 pair data
+      1 string first = "_ColorShift2"
+      0 ColorRGBA second
+       0 float r = 1
+       0 float g = 1
+       0 float b = 1
+       0 float a = 1
+    [5]
+     0 pair data
+      1 string first = "_ColorShift3"
+      0 ColorRGBA second
+       0 float r = 1
+       0 float g = 1
+       0 float b = 1
+       0 float a = 1
+    [6]
+     0 pair data
+      1 string first = "_ColorShift4"
+      0 ColorRGBA second
+       0 float r = 1
+       0 float g = 1
+       0 float b = 1
+       0 float a = 1
+    [7]
+     0 pair data
+      1 string first = "_EmissionColor"
+      0 ColorRGBA second
+       0 float r = 1
+       0 float g = 0.5019608
+       0 float b = 0
+       0 float a = 1
+    [8]
+     0 pair data
+      1 string first = "_FluorescenceColor"
+      0 ColorRGBA second
+       0 float r = 0
+       0 float g = 0
+       0 float b = 0
+       0 float a = 1
+    [9]
+     0 pair data
+      1 string first = "_SpecColor"
+      0 ColorRGBA second
+       0 float r = 0.199999958
+       0 float g = 0.199999958
+       0 float b = 0.199999958
+       0 float a = 1
+    [10]
+     0 pair data
+      1 string first = "g_vWorldAlignedNormalTangentU"
+      0 ColorRGBA second
+       0 float r = -1
+       0 float g = 0
+       0 float b = 0
+       0 float a = 0
+    [11]
+     0 pair data
+      1 string first = "g_vWorldAlignedNormalTangentV"
+      0 ColorRGBA second
+       0 float r = 0
+       0 float g = 0
+       0 float b = 1
+       0 float a = 0
+    [12]
+     0 pair data
+      1 string first = "g_vWorldAlignedTextureNormal"
+      0 ColorRGBA second
+       0 float r = 0
+       0 float g = 1
+       0 float b = 0
+       0 float a = 0
+    [13]
+     0 pair data
+      1 string first = "g_vWorldAlignedTexturePosition"
+      0 ColorRGBA second
+       0 float r = 0
+       0 float g = 0
+       0 float b = 0
+       0 float a = 0
+    [14]
+     0 pair data
+      1 string first = "g_vWorldAlignedTextureSize"
+      0 ColorRGBA second
+       0 float r = 1
+       0 float g = 1
+       0 float b = 1
+       0 float a = 0

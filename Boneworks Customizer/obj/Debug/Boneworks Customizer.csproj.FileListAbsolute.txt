@@ -1,0 +1,15 @@
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Debug\Boneworks Customizer.exe.config
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Debug\Boneworks Customizer.exe
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Debug\Boneworks Customizer.pdb
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks Customizer.csprojAssemblyReference.cache
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks_Customizer.Form1.resources
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks_Customizer.Properties.Resources.resources
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks Customizer.csproj.GenerateResource.cache
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks Customizer.csproj.CoreCompileInputs.cache
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks Customizer.exe
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks Customizer.pdb
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Debug\Boneworks Customizer.csproj.CopyComplete

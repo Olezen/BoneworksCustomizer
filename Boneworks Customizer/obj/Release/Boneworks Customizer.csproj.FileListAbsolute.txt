@@ -1,0 +1,9 @@
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Release\Boneworks Customizer.exe.config
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Release\Boneworks Customizer.exe
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Release\Boneworks Customizer.pdb
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks_Customizer.Form1.resources
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks_Customizer.Properties.Resources.resources
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.csproj.GenerateResource.cache
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.csproj.CoreCompileInputs.cache
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.exe
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.pdb
