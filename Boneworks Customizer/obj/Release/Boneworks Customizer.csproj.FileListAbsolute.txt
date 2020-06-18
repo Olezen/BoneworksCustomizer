@@ -7,3 +7,7 @@ C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Bo
 C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.csproj.CoreCompileInputs.cache
 C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.exe
 C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.pdb
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.csprojAssemblyReference.cache
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Release\Newtonsoft.Json.dll
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\bin\Release\Newtonsoft.Json.xml
+C:\Users\Ole.CALLAS\Documents\Visual Studio 2017\Projects\BoneworksCustomizer\Boneworks Customizer\obj\Release\Boneworks Customizer.csproj.CopyComplete

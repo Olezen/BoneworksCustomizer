@@ -38,6 +38,7 @@
             this.nullbodyWoundColorButton = new System.Windows.Forms.Button();
             this.nullbodyBodyColorLabel = new System.Windows.Forms.Label();
             this.nullbodyBodyColorButton = new System.Windows.Forms.Button();
+            this.nullbodyPicture = new System.Windows.Forms.PictureBox();
             this.nullbodyExportButton = new System.Windows.Forms.Button();
             this.fordTab = new System.Windows.Forms.TabPage();
             this.fordNoteLabel = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.fordSkinColorButton = new System.Windows.Forms.Button();
             this.fordHelpButton = new System.Windows.Forms.Button();
             this.defaultFordButton = new System.Windows.Forms.Button();
+            this.fordPicture = new System.Windows.Forms.PictureBox();
             this.redDotTab = new System.Windows.Forms.TabPage();
             this.reticleLabel = new System.Windows.Forms.Label();
             this.redDotTextureComboBox = new System.Windows.Forms.ComboBox();
@@ -60,6 +62,7 @@
             this.defaultRedDotButton = new System.Windows.Forms.Button();
             this.redDotColorLabel = new System.Windows.Forms.Label();
             this.redDotColorButton = new System.Windows.Forms.Button();
+            this.redDotPicture = new System.Windows.Forms.PictureBox();
             this.nightvisionTab = new System.Windows.Forms.TabPage();
             this.nightvisionExportButton = new System.Windows.Forms.Button();
             this.nightvisionHelpButton = new System.Windows.Forms.Button();
@@ -69,6 +72,7 @@
             this.defaultNightvisionButton = new System.Windows.Forms.Button();
             this.nightvisionColorLabel = new System.Windows.Forms.Label();
             this.nightvisionColorButton = new System.Windows.Forms.Button();
+            this.nightvisionPicture = new System.Windows.Forms.PictureBox();
             this.voidTab = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.voidDistortionAmountLabel = new System.Windows.Forms.Label();
@@ -78,27 +82,28 @@
             this.voidMaterialInput = new System.Windows.Forms.TextBox();
             this.voidTitleLabel = new System.Windows.Forms.Label();
             this.voidHelp = new System.Windows.Forms.Button();
+            this.voidPicture = new System.Windows.Forms.PictureBox();
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.exportLabel = new System.Windows.Forms.Label();
             this.pathButton = new System.Windows.Forms.Button();
-            this.nullbodyPicture = new System.Windows.Forms.PictureBox();
-            this.fordPicture = new System.Windows.Forms.PictureBox();
-            this.redDotPicture = new System.Windows.Forms.PictureBox();
-            this.nightvisionPicture = new System.Windows.Forms.PictureBox();
-            this.voidPicture = new System.Windows.Forms.PictureBox();
+            this.loadingBlockPanel = new System.Windows.Forms.Panel();
+            this.loadingBlockText = new System.Windows.Forms.Label();
+            this.pathIDProgressBar = new System.Windows.Forms.ProgressBar();
+            this.pathIDErrorMessage = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.nullbodyTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nullbodyPicture)).BeginInit();
             this.fordTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fordPicture)).BeginInit();
             this.redDotTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.redDotPicture)).BeginInit();
             this.nightvisionTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nightvisionIntensityTrackbar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nightvisionPicture)).BeginInit();
             this.voidTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.voidDistortionTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nullbodyPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fordPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redDotPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nightvisionPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voidPicture)).BeginInit();
+            this.loadingBlockPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -264,6 +269,17 @@
             this.nullbodyBodyColorButton.UseVisualStyleBackColor = false;
             this.nullbodyBodyColorButton.Click += new System.EventHandler(this.bullbodyBodyColorButton_Click);
             // 
+            // nullbodyPicture
+            // 
+            this.nullbodyPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.nullbodyPicture.Image = global::Boneworks_Customizer.Properties.Resources.grid_background;
+            this.nullbodyPicture.Location = new System.Drawing.Point(252, 16);
+            this.nullbodyPicture.Name = "nullbodyPicture";
+            this.nullbodyPicture.Size = new System.Drawing.Size(236, 363);
+            this.nullbodyPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.nullbodyPicture.TabIndex = 1;
+            this.nullbodyPicture.TabStop = false;
+            // 
             // nullbodyExportButton
             // 
             this.nullbodyExportButton.Location = new System.Drawing.Point(10, 232);
@@ -416,6 +432,17 @@
             this.defaultFordButton.UseVisualStyleBackColor = true;
             this.defaultFordButton.Click += new System.EventHandler(this.defaultFordButton_Click);
             // 
+            // fordPicture
+            // 
+            this.fordPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fordPicture.Image = global::Boneworks_Customizer.Properties.Resources.grid_background;
+            this.fordPicture.Location = new System.Drawing.Point(252, 16);
+            this.fordPicture.Name = "fordPicture";
+            this.fordPicture.Size = new System.Drawing.Size(236, 363);
+            this.fordPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fordPicture.TabIndex = 2;
+            this.fordPicture.TabStop = false;
+            // 
             // redDotTab
             // 
             this.redDotTab.Controls.Add(this.reticleLabel);
@@ -512,6 +539,17 @@
             this.redDotColorButton.TabIndex = 14;
             this.redDotColorButton.UseVisualStyleBackColor = false;
             this.redDotColorButton.Click += new System.EventHandler(this.redDotColorButton_Click);
+            // 
+            // redDotPicture
+            // 
+            this.redDotPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.redDotPicture.Image = global::Boneworks_Customizer.Properties.Resources.red_dot_example_background;
+            this.redDotPicture.Location = new System.Drawing.Point(252, 16);
+            this.redDotPicture.Name = "redDotPicture";
+            this.redDotPicture.Size = new System.Drawing.Size(236, 363);
+            this.redDotPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.redDotPicture.TabIndex = 2;
+            this.redDotPicture.TabStop = false;
             // 
             // nightvisionTab
             // 
@@ -617,6 +655,17 @@
             this.nightvisionColorButton.UseVisualStyleBackColor = false;
             this.nightvisionColorButton.Click += new System.EventHandler(this.nightvisionColorButton_Click);
             // 
+            // nightvisionPicture
+            // 
+            this.nightvisionPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.nightvisionPicture.Image = global::Boneworks_Customizer.Properties.Resources.nightvisionExample;
+            this.nightvisionPicture.Location = new System.Drawing.Point(252, 16);
+            this.nightvisionPicture.Name = "nightvisionPicture";
+            this.nightvisionPicture.Size = new System.Drawing.Size(236, 363);
+            this.nightvisionPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.nightvisionPicture.TabIndex = 12;
+            this.nightvisionPicture.TabStop = false;
+            // 
             // voidTab
             // 
             this.voidTab.Controls.Add(this.label1);
@@ -716,6 +765,17 @@
             this.voidHelp.UseVisualStyleBackColor = true;
             this.voidHelp.Click += new System.EventHandler(this.voidHelp_Click);
             // 
+            // voidPicture
+            // 
+            this.voidPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.voidPicture.Image = global::Boneworks_Customizer.Properties.Resources.void_pistol;
+            this.voidPicture.Location = new System.Drawing.Point(252, 16);
+            this.voidPicture.Name = "voidPicture";
+            this.voidPicture.Size = new System.Drawing.Size(236, 363);
+            this.voidPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.voidPicture.TabIndex = 2;
+            this.voidPicture.TabStop = false;
+            // 
             // pathTextBox
             // 
             this.pathTextBox.Location = new System.Drawing.Point(99, 8);
@@ -743,66 +803,50 @@
             this.pathButton.UseVisualStyleBackColor = true;
             this.pathButton.Click += new System.EventHandler(this.pathButton_Click);
             // 
-            // nullbodyPicture
+            // loadingBlockPanel
             // 
-            this.nullbodyPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.nullbodyPicture.Image = global::Boneworks_Customizer.Properties.Resources.grid_background;
-            this.nullbodyPicture.Location = new System.Drawing.Point(252, 16);
-            this.nullbodyPicture.Name = "nullbodyPicture";
-            this.nullbodyPicture.Size = new System.Drawing.Size(236, 363);
-            this.nullbodyPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.nullbodyPicture.TabIndex = 1;
-            this.nullbodyPicture.TabStop = false;
+            this.loadingBlockPanel.Controls.Add(this.pathIDErrorMessage);
+            this.loadingBlockPanel.Controls.Add(this.pathIDProgressBar);
+            this.loadingBlockPanel.Controls.Add(this.loadingBlockText);
+            this.loadingBlockPanel.Location = new System.Drawing.Point(0, 0);
+            this.loadingBlockPanel.Name = "loadingBlockPanel";
+            this.loadingBlockPanel.Size = new System.Drawing.Size(10000, 10000);
+            this.loadingBlockPanel.TabIndex = 4;
             // 
-            // fordPicture
+            // loadingBlockText
             // 
-            this.fordPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.fordPicture.Image = global::Boneworks_Customizer.Properties.Resources.grid_background;
-            this.fordPicture.Location = new System.Drawing.Point(252, 16);
-            this.fordPicture.Name = "fordPicture";
-            this.fordPicture.Size = new System.Drawing.Size(236, 363);
-            this.fordPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.fordPicture.TabIndex = 2;
-            this.fordPicture.TabStop = false;
+            this.loadingBlockText.AutoSize = true;
+            this.loadingBlockText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadingBlockText.Location = new System.Drawing.Point(146, 209);
+            this.loadingBlockText.Name = "loadingBlockText";
+            this.loadingBlockText.Size = new System.Drawing.Size(250, 24);
+            this.loadingBlockText.TabIndex = 0;
+            this.loadingBlockText.Text = "Downloading latest pathIDs...";
+            this.loadingBlockText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // redDotPicture
+            // pathIDProgressBar
             // 
-            this.redDotPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.redDotPicture.Image = global::Boneworks_Customizer.Properties.Resources.red_dot_example_background;
-            this.redDotPicture.Location = new System.Drawing.Point(252, 16);
-            this.redDotPicture.Name = "redDotPicture";
-            this.redDotPicture.Size = new System.Drawing.Size(236, 363);
-            this.redDotPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.redDotPicture.TabIndex = 2;
-            this.redDotPicture.TabStop = false;
+            this.pathIDProgressBar.Location = new System.Drawing.Point(150, 236);
+            this.pathIDProgressBar.Name = "pathIDProgressBar";
+            this.pathIDProgressBar.Size = new System.Drawing.Size(246, 23);
+            this.pathIDProgressBar.TabIndex = 1;
             // 
-            // nightvisionPicture
+            // pathIDErrorMessage
             // 
-            this.nightvisionPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.nightvisionPicture.Image = global::Boneworks_Customizer.Properties.Resources.nightvisionExample;
-            this.nightvisionPicture.Location = new System.Drawing.Point(252, 16);
-            this.nightvisionPicture.Name = "nightvisionPicture";
-            this.nightvisionPicture.Size = new System.Drawing.Size(236, 363);
-            this.nightvisionPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.nightvisionPicture.TabIndex = 12;
-            this.nightvisionPicture.TabStop = false;
-            // 
-            // voidPicture
-            // 
-            this.voidPicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.voidPicture.Image = global::Boneworks_Customizer.Properties.Resources.void_pistol;
-            this.voidPicture.Location = new System.Drawing.Point(252, 16);
-            this.voidPicture.Name = "voidPicture";
-            this.voidPicture.Size = new System.Drawing.Size(236, 363);
-            this.voidPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.voidPicture.TabIndex = 2;
-            this.voidPicture.TabStop = false;
+            this.pathIDErrorMessage.AutoSize = true;
+            this.pathIDErrorMessage.ForeColor = System.Drawing.Color.DarkRed;
+            this.pathIDErrorMessage.Location = new System.Drawing.Point(150, 268);
+            this.pathIDErrorMessage.MaximumSize = new System.Drawing.Size(246, 200);
+            this.pathIDErrorMessage.Name = "pathIDErrorMessage";
+            this.pathIDErrorMessage.Size = new System.Drawing.Size(0, 13);
+            this.pathIDErrorMessage.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 464);
+            this.Controls.Add(this.loadingBlockPanel);
             this.Controls.Add(this.pathButton);
             this.Controls.Add(this.exportLabel);
             this.Controls.Add(this.pathTextBox);
@@ -815,21 +859,23 @@
             this.tabControl.ResumeLayout(false);
             this.nullbodyTab.ResumeLayout(false);
             this.nullbodyTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nullbodyPicture)).EndInit();
             this.fordTab.ResumeLayout(false);
             this.fordTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fordPicture)).EndInit();
             this.redDotTab.ResumeLayout(false);
             this.redDotTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.redDotPicture)).EndInit();
             this.nightvisionTab.ResumeLayout(false);
             this.nightvisionTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nightvisionIntensityTrackbar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nightvisionPicture)).EndInit();
             this.voidTab.ResumeLayout(false);
             this.voidTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.voidDistortionTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nullbodyPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fordPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.redDotPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nightvisionPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.voidPicture)).EndInit();
+            this.loadingBlockPanel.ResumeLayout(false);
+            this.loadingBlockPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -899,6 +945,10 @@
         private System.Windows.Forms.Button exportVoidButton;
         private System.Windows.Forms.Label reticleLabel;
         private System.Windows.Forms.ComboBox redDotTextureComboBox;
+        private System.Windows.Forms.Panel loadingBlockPanel;
+        private System.Windows.Forms.Label loadingBlockText;
+        private System.Windows.Forms.ProgressBar pathIDProgressBar;
+        private System.Windows.Forms.Label pathIDErrorMessage;
     }
 }
 

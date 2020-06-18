@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Globalization;
 using System.Security;
+using System.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.ComponentModel;
 
 namespace Boneworks_Customizer {
 
@@ -26,8 +24,105 @@ namespace Boneworks_Customizer {
             SetDefaultRedDot ();
             SetDefaultFord ();
 
+            LoadPathIDs ();
+
         }
-        
+
+        public class PathIDs {
+            
+            public string capsuleCoreShaderID = "0";
+            public string wireframeShaderID = "0";
+            public string corruptWireframeShaderID = "0";
+            public string nvgShaderID = "0";
+            public string reflexScopeShaderID = "0";
+            public string voidShaderID = "0";
+            
+            public string corruptWireframeBloodTextureID = "0";
+            public string corruptWireframeBloodTextureBodyID = "0";
+            public string corruptWireframeBumpTextureID = "0";
+            public string corruptWireframeBumpTextureBodyID = "0";
+            public string corruptWireframeMGTextureID = "0";
+            public string corruptWireframeMGTextureBodyID = "0";
+
+            public string nvgEmissionID = "0";
+
+            public string reflexScopeTextureID = "0";
+
+            public string voidBrdfLutID = "0";
+            public string voidBackgroundTextureID = "0";
+            public string voidDistortionID = "0";
+            public string voidEmissionID = "0";
+
+            public string wireframeBodyTextureID = "0";
+            public string wireframeFaceTextureID = "0";
+            public string wireframeHandTextureID = "0";
+            
+            public string corruptWireframeBodyTextureID = "0";
+            public string corruptWireframeFaceTextureID = "0";
+            public string corruptWireframeHandTextureID = "0";
+
+        }
+
+        public PathIDs pathIDs;
+        public bool receivedPathIDs = false;
+
+        private WebClient webClient = new WebClient ();
+        private void LoadPathIDs () {
+
+            if (webClient.IsBusy)
+                return;
+
+            pathIDProgressBar.Value = 0;
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler (PathIDsDownloadComplete);
+            webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler (PathIDsDownloadProgressChanged);
+            webClient.DownloadStringAsync (new Uri ("https://www.olezen.xyz/boneworkscustomizer/pathids.json"));
+            
+        }
+
+        private void PathIDsDownloadProgressChanged (object sender, DownloadProgressChangedEventArgs e) {
+
+            pathIDProgressBar.Value = e.ProgressPercentage;
+
+        }
+
+        private void PathIDsDownloadComplete (object sender, DownloadStringCompletedEventArgs e) {
+
+            if (!e.Cancelled && e.Error == null) {
+                
+                string pathIDsJson = e.Result;
+                pathIDs = JsonConvert.DeserializeObject<PathIDs> (pathIDsJson);
+
+                pathIDProgressBar.Value = 100;
+                RemoveLoadingBlock ();
+
+            } else {
+
+                if (e.Error != null)
+                    pathIDErrorMessage.Text = "Error: " + e.Error.ToString ();
+                else if (e.Cancelled)
+                    pathIDErrorMessage.Text = "Error: Download cancelled";
+
+                LoadPathIDs ();
+
+            }
+            
+        }
+
+        private void RemoveLoadingBlock () {
+
+            loadingBlockPanel.Enabled = false;
+            loadingBlockPanel.Visible = false;
+
+            loadingBlockText.Enabled = false;
+            loadingBlockText.Visible = false;
+
+            pathIDErrorMessage.Enabled = false;
+            pathIDErrorMessage.Visible = false;
+
+        }
+
         private void pathButton_Click (object sender, EventArgs e) {
             
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog ();
@@ -195,31 +290,31 @@ namespace Boneworks_Customizer {
             string handMatName = !corruptedTextures ? "mat_nullBody_hands"       : "mat_nullBody_hands_Black";
             
             // Texture IDs
-            string bodyTexID = !isCorrupted ? "994"  : "698";
-            string faceTexID = !isCorrupted ? "1277" : "682";
-            string handTexID = !isCorrupted ? "1201" : "1165";
-            
+            string bodyTexID = !isCorrupted ? pathIDs.wireframeBodyTextureID : pathIDs.corruptWireframeBodyTextureID;
+            string faceTexID = !isCorrupted ? pathIDs.wireframeFaceTextureID : pathIDs.corruptWireframeFaceTextureID;
+            string handTexID = !isCorrupted ? pathIDs.wireframeHandTextureID : pathIDs.corruptWireframeHandTextureID;
+
             // Get colors
             RGBFloat bodyRGB = new RGBFloat (nullbodyBodyColorButton.BackColor);
             RGBFloat wireRGB = new RGBFloat (nullbodyWireframeColorButton.BackColor);
             RGBFloat woundRGB = new RGBFloat (nullbodyWoundColorButton.BackColor);
             
             // Generate core material string
-            string coreMatString = MatGenerators.GenerateCapsuleCoreMatString (coreMatName, bodyRGB);
+            string coreMatString = MatGenerators.GenerateCapsuleCoreMatString (coreMatName, pathIDs.capsuleCoreShaderID, bodyRGB);
 
             // Generate wireframe material strings
             string bodyMatString = "", faceMatString = "", handMatString = "";
             if (!isCorrupted) {
 
-                bodyMatString = MatGenerators.GenerateWireframeMatString (bodyMatName, wireRGB, woundRGB, bodyTexID);
-                faceMatString = MatGenerators.GenerateWireframeMatString (faceMatName, wireRGB, woundRGB, faceTexID);
-                handMatString = MatGenerators.GenerateWireframeMatString (handMatName, wireRGB, woundRGB, handTexID);
+                bodyMatString = MatGenerators.GenerateWireframeMatString (bodyMatName, pathIDs.wireframeShaderID, wireRGB, woundRGB, bodyTexID);
+                faceMatString = MatGenerators.GenerateWireframeMatString (faceMatName, pathIDs.wireframeShaderID, wireRGB, woundRGB, faceTexID);
+                handMatString = MatGenerators.GenerateWireframeMatString (handMatName, pathIDs.wireframeShaderID, wireRGB, woundRGB, handTexID);
 
             } else {
 
-                bodyMatString = MatGenerators.GenerateCorruptWireframeMatString (bodyMatName, wireRGB, woundRGB, bodyTexID, "1259", "759",  "720");
-                faceMatString = MatGenerators.GenerateCorruptWireframeMatString (faceMatName, wireRGB, woundRGB, faceTexID, "0",    "1184", "720");
-                handMatString = MatGenerators.GenerateCorruptWireframeMatString (handMatName, wireRGB, woundRGB, handTexID, "0",    "1184", "720");
+                bodyMatString = MatGenerators.GenerateCorruptWireframeMatString (bodyMatName, pathIDs.corruptWireframeShaderID, wireRGB, woundRGB, bodyTexID, pathIDs.corruptWireframeBloodTextureBodyID, pathIDs.corruptWireframeBumpTextureBodyID,  pathIDs.corruptWireframeMGTextureBodyID);
+                faceMatString = MatGenerators.GenerateCorruptWireframeMatString (faceMatName, pathIDs.corruptWireframeShaderID, wireRGB, woundRGB, faceTexID, pathIDs.corruptWireframeBloodTextureID, pathIDs.corruptWireframeBumpTextureID, pathIDs.corruptWireframeMGTextureID);
+                handMatString = MatGenerators.GenerateCorruptWireframeMatString (handMatName, pathIDs.corruptWireframeShaderID, wireRGB, woundRGB, handTexID, pathIDs.corruptWireframeBloodTextureID, pathIDs.corruptWireframeBumpTextureID, pathIDs.corruptWireframeMGTextureID);
                 
             }
 
@@ -323,7 +418,7 @@ namespace Boneworks_Customizer {
             // Create the material
             RGBFloat color = new RGBFloat (nightvisionColorButton.BackColor);
             float intensity = nightvisionIntensityTrackbar.Value / 10f;
-            string nightvisionMatString = MatGenerators.GenerateNightvisionMatString ("NightVision", color, intensity);
+            string nightvisionMatString = MatGenerators.GenerateNightvisionMatString ("NightVision", pathIDs.nvgShaderID, color, intensity, pathIDs.nvgEmissionID);
 
             // Get the directory
             if (!GetOutputDir ("nightvision", out string dir))
@@ -458,7 +553,7 @@ namespace Boneworks_Customizer {
                 return;
 
             // Create the material
-            string reflexScopeMatString = MatGenerators.GenerateReflexScopeMatString ("Reflex Scope");
+            string reflexScopeMatString = MatGenerators.GenerateReflexScopeMatString ("Reflex Scope", pathIDs.reflexScopeShaderID, pathIDs.reflexScopeTextureID);
 
             // Get the texture
             Bitmap reticle = GetReticle (redDotColorButton.BackColor, redDotTextureComboBox.SelectedIndex);
@@ -642,7 +737,7 @@ namespace Boneworks_Customizer {
 
             // Create the material
             string matName = voidMaterialInput.Text;
-            string voidifiedMatString = MatGenerators.GenerateVoidifiedMatString (matName, voidDistortionTrackBar.Value / 100f);
+            string voidifiedMatString = MatGenerators.GenerateVoidifiedMatString (matName, pathIDs.voidShaderID, voidDistortionTrackBar.Value / 100f, pathIDs.voidBrdfLutID, pathIDs.voidBackgroundTextureID, pathIDs.voidDistortionID, pathIDs.voidEmissionID);
 
             // Get the directory
             if (!GetOutputDir ("voidified materials", out string dir))
@@ -657,7 +752,6 @@ namespace Boneworks_Customizer {
         }
 
         #endregion
-
         
     }
 
@@ -754,14 +848,14 @@ namespace Boneworks_Customizer {
 
     public static class MatGenerators {
 
-        public static string GenerateCapsuleCoreMatString (string matName, RGBFloat coreColor) {
+        public static string GenerateCapsuleCoreMatString (string matName, string shaderPathID, RGBFloat coreColor) {
 
             string str = "" +
                 "0 Material Base\r\n" +
                 " 1 string m_Name = \"" + matName + "\"\r\n" +
                 " 0 PPtr<Shader> m_Shader\r\n" +
                 "  0 int m_FileID = 0\r\n" +
-                "  0 SInt64 m_PathID = 2613\r\n" +
+                "  0 SInt64 m_PathID = " + shaderPathID + "\r\n" +
                 " 1 string m_ShaderKeywords = \"G_BCASTSHADOWS_ON S_RECEIVE_SHADOWS S_SPECULAR_METALLIC _DETAIL_MULX2\"\r\n" +
                 " 0 unsigned int m_LightmapFlags = 4\r\n" +
                 " 0 bool m_EnableInstancingVariants = true\r\n" +
@@ -1109,14 +1203,14 @@ namespace Boneworks_Customizer {
 
         }
 
-        public static string GenerateWireframeMatString (string matName, RGBFloat wireColor, RGBFloat woundColor, string textureID) {
+        public static string GenerateWireframeMatString (string matName, string shaderPathID, RGBFloat wireColor, RGBFloat woundColor, string textureID) {
 
             string str = "" +
                 "0 Material Base\r\n" +
                 " 1 string m_Name = \"" + matName + "\"\r\n" +
                 " 0 PPtr<Shader> m_Shader\r\n" +
                 "  0 int m_FileID = 0\r\n" +
-                "  0 SInt64 m_PathID = 2586\r\n" +
+                "  0 SInt64 m_PathID = " + shaderPathID + "\r\n" +
                 " 1 string m_ShaderKeywords = \"S_RECEIVE_SHADOWS S_SPECULAR_METALLIC _ALPHABLEND_ON _DETAIL_MULX2 _EMISSION\"\r\n" +
                 " 0 unsigned int m_LightmapFlags = 4\r\n" +
                 " 0 bool m_EnableInstancingVariants = true\r\n" +
@@ -1517,14 +1611,14 @@ namespace Boneworks_Customizer {
 
         }
 
-        public static string GenerateCorruptWireframeMatString (string matName, RGBFloat wireColor, RGBFloat woundColor, string textureID, string bloodTextureID, string bumpMapTextureID, string metallGlossTextureID) {
+        public static string GenerateCorruptWireframeMatString (string matName, string shaderPathID, RGBFloat wireColor, RGBFloat woundColor, string textureID, string bloodTextureID, string bumpMapTextureID, string metallGlossTextureID) {
 
             string str = "" +
                 "0 Material Base\r\n" +
                 " 1 string m_Name = \"" + matName + "\"\r\n" +
                 " 0 PPtr<Shader> m_Shader\r\n" +
                 "  0 int m_FileID = 0\r\n" +
-                "  0 SInt64 m_PathID = 2592\r\n" +
+                "  0 SInt64 m_PathID = " + shaderPathID + "\r\n" +
                 " 1 string m_ShaderKeywords = \"S_RECEIVE_SHADOWS S_SPECULAR_METALLIC _ALPHABLEND_ON _DETAIL_MULX2 _EMISSION\"\r\n" +
                 " 0 unsigned int m_LightmapFlags = 4\r\n" +
                 " 0 bool m_EnableInstancingVariants = true\r\n" +
@@ -2065,7 +2159,7 @@ namespace Boneworks_Customizer {
 
         }
 
-        public static string GenerateNightvisionMatString (string matName, RGBFloat color, float intensity) {
+        public static string GenerateNightvisionMatString (string matName, string shaderPathID, RGBFloat color, float intensity, string emissionMapID) {
 
             string rString = (color.R * Math.Max (1f, intensity)).ToString (Extensions.culture);
             string gString = (color.G * Math.Max (1f, intensity)).ToString (Extensions.culture);
@@ -2075,7 +2169,7 @@ namespace Boneworks_Customizer {
                 " 1 string m_Name = \"" + matName + "\"\r\n" +
                 " 0 PPtr<Shader> m_Shader\r\n" +
                 "  0 int m_FileID = 0\r\n" +
-                "  0 SInt64 m_PathID = 2622\r\n" +
+                "  0 SInt64 m_PathID = " + shaderPathID + "\r\n" +
                 " 1 string m_ShaderKeywords = \"D_CASTSHADOW _ALPHAMOD2X_ON _ALPHAMULTIPLY_ON _EMISSION\"\r\n" +
                 " 0 unsigned int m_LightmapFlags = 4\r\n" +
                 " 0 bool m_EnableInstancingVariants = true\r\n" +
@@ -2170,7 +2264,7 @@ namespace Boneworks_Customizer {
                 "      0 UnityTexEnv second\r\n" +
                 "       0 PPtr<Texture> m_Texture\r\n" +
                 "        0 int m_FileID = 0\r\n" +
-                "        0 SInt64 m_PathID = 830\r\n" +
+                "        0 SInt64 m_PathID = " + emissionMapID + "\r\n" +
                 "       0 Vector2f m_Scale\r\n" +
                 "        0 float x = 40\r\n" +
                 "        0 float y = 1.20000005\r\n" +
@@ -2592,13 +2686,13 @@ namespace Boneworks_Customizer {
 
         }
 
-        public static string GenerateReflexScopeMatString (string matName) {
-
+        public static string GenerateReflexScopeMatString (string matName, string shaderPathID, string mainTextureID) {
+            
             string str = "0 Material Base\r\n" +
                 " 1 string m_Name = \"" + matName + "\"\r\n" +
                 " 0 PPtr<Shader> m_Shader\r\n" +
                 "  0 int m_FileID = 0\r\n" +
-                "  0 SInt64 m_PathID = 2633\r\n" +
+                "  0 SInt64 m_PathID = " + shaderPathID + "\r\n" +
                 " 1 string m_ShaderKeywords = \"\"\r\n" +
                 " 0 unsigned int m_LightmapFlags = 4\r\n" +
                 " 0 bool m_EnableInstancingVariants = false\r\n" +
@@ -2620,7 +2714,7 @@ namespace Boneworks_Customizer {
                 "      0 UnityTexEnv second\r\n" +
                 "       0 PPtr<Texture> m_Texture\r\n" +
                 "        0 int m_FileID = 0\r\n" +
-                "        0 SInt64 m_PathID = 841\r\n" +
+                "        0 SInt64 m_PathID = " + mainTextureID + "\r\n" +
                 "       0 Vector2f m_Scale\r\n" +
                 "        0 float x = 1\r\n" +
                 "        0 float y = 1\r\n" +
@@ -2670,14 +2764,14 @@ namespace Boneworks_Customizer {
 
         }
 
-        public static string GenerateVoidifiedMatString (string matName, float distortion) {
+        public static string GenerateVoidifiedMatString (string matName, string shaderPathID, float distortion, string brdfLutID, string backgroundTextureID, string distortionID, string emissionID) {
 
             string distortionString = distortion.ToString (Extensions.culture);
             string str = "0 Material Base\r\n" +
                 " 1 string m_Name = \"" + matName + "\"\r\n" +
                 " 0 PPtr<Shader> m_Shader\r\n" +
                 "  0 int m_FileID = 0\r\n" +
-                "  0 SInt64 m_PathID = 2583\r\n" +
+                "  0 SInt64 m_PathID = " + shaderPathID + "\r\n" +
                 " 1 string m_ShaderKeywords = \"G_BCASTSHADOWS_ON S_EMISSIVE_MULTI S_OCCLUSION S_RECEIVE_SHADOWS S_SPECULAR_METALLIC S_WORLD_ALIGNED_TEXTURE _BRDFMAP _DETAIL_MULX2 _EMISSION _PARALLAXMAP\"\r\n" +
                 " 0 unsigned int m_LightmapFlags = 4\r\n" +
                 " 0 bool m_EnableInstancingVariants = true\r\n" +
@@ -2699,7 +2793,7 @@ namespace Boneworks_Customizer {
                 "      0 UnityTexEnv second\r\n" +
                 "       0 PPtr<Texture> m_Texture\r\n" +
                 "        0 int m_FileID = 0\r\n" +
-                "        0 SInt64 m_PathID = 1070\r\n" +
+                "        0 SInt64 m_PathID = " + brdfLutID + "\r\n" +
                 "       0 Vector2f m_Scale\r\n" +
                 "        0 float x = 1\r\n" +
                 "        0 float y = 1\r\n" +
@@ -2712,7 +2806,7 @@ namespace Boneworks_Customizer {
                 "      0 UnityTexEnv second\r\n" +
                 "       0 PPtr<Texture> m_Texture\r\n" +
                 "        0 int m_FileID = 0\r\n" +
-                "        0 SInt64 m_PathID = 865\r\n" +
+                "        0 SInt64 m_PathID = " + backgroundTextureID + "\r\n" +
                 "       0 Vector2f m_Scale\r\n" +
                 "        0 float x = 1\r\n" +
                 "        0 float y = 1\r\n" +
@@ -2725,7 +2819,7 @@ namespace Boneworks_Customizer {
                 "      0 UnityTexEnv second\r\n" +
                 "       0 PPtr<Texture> m_Texture\r\n" +
                 "        0 int m_FileID = 0\r\n" +
-                "        0 SInt64 m_PathID = 1031\r\n" +
+                "        0 SInt64 m_PathID = " + distortionID + "\r\n" +
                 "       0 Vector2f m_Scale\r\n" +
                 "        0 float x = 1\r\n" +
                 "        0 float y = 1\r\n" +
@@ -2738,7 +2832,7 @@ namespace Boneworks_Customizer {
                 "      0 UnityTexEnv second\r\n" +
                 "       0 PPtr<Texture> m_Texture\r\n" +
                 "        0 int m_FileID = 0\r\n" +
-                "        0 SInt64 m_PathID = 865\r\n" +
+                "        0 SInt64 m_PathID = " + emissionID + "\r\n" +
                 "       0 Vector2f m_Scale\r\n" +
                 "        0 float x = 1\r\n" +
                 "        0 float y = 1\r\n" +
